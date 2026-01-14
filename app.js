@@ -18,27 +18,31 @@ document.getElementById("generateBtn").onclick = async () => {
 };
 
 document.getElementById("voiceEngBtn").onclick = async () => {
-    const text = document.getElementById("engOutput").textContent;
 
     const res = await fetch(backendURL + "/voice-en", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text })
+        method: "POST"
     });
 
     const blob = await res.blob();
-    document.getElementById("engVoiceDownload").href = URL.createObjectURL(blob);
+    const url = URL.createObjectURL(blob);
+
+    const a = document.getElementById("engVoiceDownload");
+    a.href = url;
+    a.download = "english_voice.wav";
+    a.textContent = "Download English Voice";
 };
 
 document.getElementById("voiceMmBtn").onclick = async () => {
-    const text = document.getElementById("mmOutput").textContent;
 
     const res = await fetch(backendURL + "/voice-mm", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text })
+        method: "POST"
     });
 
     const blob = await res.blob();
-    document.getElementById("mmVoiceDownload").href = URL.createObjectURL(blob);
+    const url = URL.createObjectURL(blob);
+
+    const a = document.getElementById("mmVoiceDownload");
+    a.href = url;
+    a.download = "myanmar_voice.wav";
+    a.textContent = "Download Burmese Voice";
 };
