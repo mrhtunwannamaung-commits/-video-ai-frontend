@@ -1,4 +1,4 @@
-const backendURL = "https://pmu2.onrender.com";
+const backendURL = "https://video-ai-backend-ft6x.onrender.com";
 
 document.getElementById("generateBtn").onclick = async () => {
     const file = document.getElementById("videoInput").files[0];
